@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+Resources:
+  WebServerSecurityGroup: #logical ID, used within CFN
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable HTTP for apach Web Server and SSH for secure connection # Required
+      GroupName: "String"  # name u want to use in console
+#      SecurityGroupEgress: # outbound rules
+#        SecurityGroupEgress
+      SecurityGroupIngress: # inbound rules
+        - IpProtocol: tcp # need hyphen for this block since AWS says its a list
+          FromPort: 80 # from and to actually an interval
+          ToPort: 80 
+          CidrIp: 0.0.0.0/0 # have to use this syntax for subnet mask for AWS stuff
+      Tags:
+        Tags
+      VpcId: "String"
+Outputs:
